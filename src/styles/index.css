@@ -16,8 +16,8 @@
     font-weight: bold;
 }
 
-html, body, h1{
+html, body{
     font-family: 'Google Sans' !important;
-    text-align: center;
+    margin: 0 !important;
     color: #333;
 }

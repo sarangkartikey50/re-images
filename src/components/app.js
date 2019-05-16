@@ -1,9 +1,12 @@
 import React from 'react'
+import CustomAppBar from './customAppBar'
+import ImageCardContainer from './imageCardContainer'
 
 export default function App(props){
     return (
         <div>
-            <h1>React Webpack Starter</h1>
+            <CustomAppBar />
+            <ImageCardContainer />
         </div>
     )
 }
