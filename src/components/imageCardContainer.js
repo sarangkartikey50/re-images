@@ -1,8 +1,9 @@
 import React, { lazy, Suspense, useEffect } from 'react'
 import { withStyles } from '@material-ui/core/styles'
 import { connect } from 'react-redux'
-import { fetchPosts } from '../actions/index'
+import { fetchPosts, updateCachedPosts } from '../actions/index'
 import { Grid } from '@material-ui/core'
+import faker from 'faker'
 
 const mapStateToProps = (state) => {
     return {
@@ -10,27 +11,35 @@ const mapStateToProps = (state) => {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return  {
+        fetchPosts: () => { dispatch(fetchPosts()) },
+        updateCachedPosts: () => { dispatch(updateCachedPosts())}
+    }
+}
+
 const ImageCard = lazy(() => import('./imageCard'))
 
-const style = {
+const style = theme => ({
     root: {
-        padding: '20px'
+        padding: '20px',
+        background: theme.palette.appBackground
     },
     imageLoader: {
         height: '200px',
         width: '300px',
-        background: '#efefef',
+        background: theme.palette.loaderImageColor,
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px'
     },
     bodyLoader: {
         height: '100px',
         width: '300px',
-        background: '#fafafa',
+        background: theme.palette.loaderBodyColor,
         borderBottomLeftRadius: '10px',
         borderBottomRightRadius: '10px'
     }
-}
+})
 
 const CardLoader = (classes) => {
     return (
@@ -45,19 +54,23 @@ const ImageCardContainer = (props) => {
     const { classes, posts } = props
 
     useEffect(() => {
-        props.fetchPosts()
+        if(navigator.onLine){
+            props.fetchPosts()
+        } else {
+            props.updateCachedPosts()
+        }
     }, [])
 
-    if(!posts.length) return (<div>Loading...</div>)
+    if(!posts.length) return (<div style={{textAlign:'center', marginTop: '1em', fontWeight: 'bold'}}>Loading...</div>)
 
     return (
         <div className={classes.root}>
             <Grid container spacing={16}>
-                {posts.map(post => {
+                {posts.map((post, index) => {
                     return (
-                        <Grid item xs={12} md={3}>
+                        <Grid key={index} item xs={12} md={4} sm={6} lg={3}>
                             <Suspense fallback={CardLoader(classes)}>
-                                <ImageCard post={post} />
+                                <ImageCard image={faker.image.food()} post={post} />
                             </Suspense>
                         </Grid>
                     )
@@ -67,4 +80,4 @@ const ImageCardContainer = (props) => {
     )
 }
 
-export default connect(mapStateToProps, { fetchPosts })(withStyles(style)(ImageCardContainer))
+export default connect(mapStateToProps,  mapDispatchToProps)(withStyles(style)(ImageCardContainer))

@@ -8,11 +8,12 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const styles = {
+const styles = theme => ({
   card: {
     maxWidth: 345,
     fontFamily: 'Google Sans',
-    boxShadow: '0 15px 40px -20px rgba(40,44,63,.15)'
+    boxShadow: theme.boxShadow,
+    background: theme.palette.background
   },
   media: {
     height: 175,
@@ -20,16 +21,18 @@ const styles = {
   title: {
       fontFamily: 'Google Sans',
       fontWeight: 'bold',
-      lineHeight: '24px'
+      lineHeight: '24px',
+      color: theme.palette.text
   },
   body: {
       fontFamily: 'Google Sans',
-      marginTop: '5px'
+      marginTop: '5px',
+      color: theme.palette.text
   },
   button: {
-      color: 'blueviolet'
+      color: theme.palette.primaryColor
   }
-};
+})
 
 function ImageCard(props) {
   const { classes, post } = props;
@@ -38,7 +41,7 @@ function ImageCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="https://source.unsplash.com/random"
+          image={props.image}
           title="Contemplative Reptile"
         />
         <CardContent>
