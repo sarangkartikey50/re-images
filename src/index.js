@@ -4,6 +4,7 @@ import App from './components/app'
 import store from './store'
 import { Provider } from 'react-redux'
 import './styles/index.css'
+import ServiceWorker from './serviceWorker'
 
 const rootElement = document.getElementById('app')
 
@@ -16,3 +17,5 @@ if(rootElement.hasChildNodes()){
         <App />
     </Provider>, rootElement)
 }
+
+ServiceWorker.register()
