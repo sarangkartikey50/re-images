@@ -2,6 +2,7 @@
   "name": "react-wepback-pwa-starter",
   "version": "1.0.0",
   "description": "This is an image-pwa using webpack in react-js",
+  "homepage": "https://sarangkartikey50.github.io/re-images",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
