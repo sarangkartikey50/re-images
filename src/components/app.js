@@ -9,12 +9,13 @@ const lightTheme = createMuiTheme({
     palette: {
         main: grey[500],
         background: '#fff',
+        cardBackground: '#fff',
         text: '#333',
         primaryColor: 'blueviolet',
         iconColor: 'blueviolet',
-        appBackground: '#fff',
+        appBackground: '#fafafa',
         loaderImageColor: '#efefef',
-        loaderBodyColor: '#fafafa',
+        loaderBodyColor: '#fff',
         borderColor: '1px solid #efefef'
     },
     boxShadow: '0 5px 40px -20px rgba(40,44,63,.15)'
@@ -24,6 +25,7 @@ const darkTheme = createMuiTheme({
     palette: {
         main: grey[500],
         background: '#04052a',
+        cardBackground: '#15162c',
         text: '#fff',
         primaryColor: 'blueviolet',
         iconColor: 'blueviolet',
@@ -32,7 +34,7 @@ const darkTheme = createMuiTheme({
         loaderBodyColor: '#2c1760',
         borderColor: '1px solid #1c0b3c'
     },
-    boxShadow: '0 15px 40px -20px rgba(11, 0, 101, 0.75)'
+    boxShadow: 'none'
 })
 
 const mapStateToProps = (state) => {

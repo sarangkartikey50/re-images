@@ -13,7 +13,7 @@ const styles = theme => ({
     maxWidth: 345,
     fontFamily: 'Google Sans',
     boxShadow: theme.boxShadow,
-    background: theme.palette.background
+    background: theme.palette.cardBackground
   },
   media: {
     height: 175,
