@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -35,6 +36,14 @@ module.exports = {
                         },
                     },
                 ]
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                use: [
+                  {
+                    loader: 'url-loader?limit=100000'
+                  }
+                ]
             }
         ]
     },
@@ -50,6 +59,9 @@ module.exports = {
               '*.html',
             ],
             filename: 'sw.js'
+        }),
+        new ManifestPlugin({
+            path: './src/manifest.json'
         })
     ]
 }

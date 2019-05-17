@@ -1,0 +1,13 @@
+{
+  "main.js": "bundle.js",
+  "1.bundle.js": "1.bundle.js",
+  "2.bundle.js": "2.bundle.js",
+  "font/GoogleSans-Bold.ttf": "./font/552f43821c3ee188a20bfefb60723d87.woff",
+  "font/GoogleSans-Medium.ttf": "./font/d6bcffcfd1b91cd7e73975784c1f15f7.woff",
+  "font/GoogleSans-Regular.ttf": "./font/f406f339b8e0405f266300f26a01b934.woff",
+  "GoogleSans-Bold.ttf": "48f5361f4701d57e6cd799a29bb9a583.ttf",
+  "GoogleSans-Medium.ttf": "9b121f22cf51c845619c9b950c5007c6.ttf",
+  "GoogleSans-Regular.ttf": "d3d9c0e1c8fe0ef35ac603e8030a595b.ttf",
+  "index.html": "index.html",
+  "sw.js": "sw.js"
+}
