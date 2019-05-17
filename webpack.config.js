@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin')
 
 module.exports = {
     entry: './src/index.js',
@@ -40,6 +41,15 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './src/template.html'
+        }),
+        new ServiceWorkerWebpackPlugin({
+            entry: path.join(__dirname, './sw.js'),
+            excludes: [
+              '**/.*',
+              '**/*.map',
+              '*.html',
+            ],
+            filename: 'sw.js'
         })
     ]
 }
