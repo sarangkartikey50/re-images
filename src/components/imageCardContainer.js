@@ -70,7 +70,7 @@ const ImageCardContainer = (props) => {
                     return (
                         <Grid key={index} item xs={12} md={4} sm={6} lg={3}>
                             <Suspense fallback={CardLoader(classes)}>
-                                <ImageCard image={faker.image.food()} post={post} />
+                                <ImageCard post={post} />
                             </Suspense>
                         </Grid>
                     )

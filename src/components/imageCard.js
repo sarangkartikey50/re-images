@@ -13,7 +13,7 @@ const styles = theme => ({
     maxWidth: 345,
     fontFamily: 'Google Sans',
     boxShadow: theme.boxShadow,
-    background: theme.palette.background
+    background: theme.palette.cardBackground
   },
   media: {
     height: 175,
@@ -39,11 +39,11 @@ function ImageCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
+        {/* <CardMedia
           className={classes.media}
-          image={props.image}
+          image={props.url}
           title="Contemplative Reptile"
-        />
+        /> */}
         <CardContent>
           <Typography className={classes.title} variant="h6">
             {post.title}
